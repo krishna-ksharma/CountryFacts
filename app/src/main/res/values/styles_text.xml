@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppFont" />
+
+    <style name="AppFont.Regular">
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+
+    <style name="AppFont.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Header" parent="AppFont.Bold">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Header.Blue">
+        <item name="android:textColor">@color/colorBlue</item>
+    </style>
+
+    <style name="Header.Red">
+        <item name="android:textColor">@android:color/holo_red_dark</item>
+    </style>
+
+    <style name="Arrow" parent="AppFont.Bold">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+    <style name="Description.Black" parent="AppFont.Regular">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+</resources>

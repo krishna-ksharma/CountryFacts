@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CountryFacts</string>
+    <string name="network_error">Could not fetch facts from network.\nSwipe down to retry.</string>
+</resources>
