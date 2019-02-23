@@ -18,3 +18,6 @@ To build this application have used following libraries/pattern
 - [Android architecture components](https://developer.android.com/topic/libraries/architecture)
 - [Mockito](https://site.mockito.org/)
 - [Robolectric](http://robolectric.org/)
+
+Here is the rough design diagram
+![Alt text](/screens/design.png?raw=true "design")
