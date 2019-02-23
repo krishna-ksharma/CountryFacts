@@ -9,7 +9,7 @@ This application simply shows the list of fact about the country we provide. Eac
  
  
 # Tech Stack
-This application is written in Kotlin, have tried to separate the modules as much possible. For network communication have created separate module called api which is responsible to provide the facts data from network. The idea was to have all api related stuff in separate module so that it can be used in any of the application to access the set of Api's.  
+This application is written in Kotlin, have tried to separate the modules as much as possible. For network communication have created separate module called api which is responsible to provide the facts data from network. The idea was to have keep the api related stuff in separate module so that can be used in any other application as well. Think of this module provides set of Facebook API's and have OneToMany client application who can simply use this module to get the facebook api's such as login, friends, messages, photos etc.  
 
 To build this application have used following libraries/pattern
 - [Picasso](https://square.github.io/picasso/)
