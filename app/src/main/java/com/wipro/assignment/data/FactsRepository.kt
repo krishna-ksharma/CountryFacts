@@ -31,7 +31,7 @@ open class FactsRepository(private val factsNetworkDataSource: FactsDataSource) 
             }
 
             fun excludeEmptyRow(row: Facts.Row): Boolean {
-                return !row.title.isNullOrEmpty() && !row.description.isNullOrEmpty() && !row.imageHref.isNullOrEmpty()
+                return !row.title.isNullOrEmpty() || !row.description.isNullOrEmpty() || !row.imageHref.isNullOrEmpty()
             }
 
             override fun onFailure(call: Call<Facts>?, t: Throwable?) {

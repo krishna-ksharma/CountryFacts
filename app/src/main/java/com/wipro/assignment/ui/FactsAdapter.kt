@@ -37,6 +37,8 @@ class FactsAdapter(private val context: Context, val facts: MutableList<Facts.Ro
                         .placeholder(R.drawable.place_holder)
                         .resize(context.resources.getDimensionPixelSize(R.dimen.image_width), context.resources.getDimensionPixelSize(R.dimen.image_height))
                         .into(itemView.factImage)
+            } else {
+                itemView.factImage.setImageResource(R.drawable.place_holder)
             }
         }
     }
