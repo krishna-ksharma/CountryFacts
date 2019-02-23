@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/gradient_fact_background"
     android:padding="@dimen/standard_half_margin">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -25,7 +26,7 @@
         android:id="@+id/factImage"
         android:layout_width="@dimen/image_width"
         android:layout_height="@dimen/image_height"
-        android:layout_marginHorizontal="@dimen/standard_small_margin"
+        android:layout_marginEnd="@dimen/standard_small_margin"
         android:layout_marginTop="@dimen/standard_half_margin"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toStartOf="@id/arrow"
@@ -36,7 +37,7 @@
         style="@style/Description.Black"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/standard_small_margin"
+        android:layout_marginEnd="@dimen/standard_small_margin"
         android:layout_marginTop="@dimen/standard_small_margin"
         app:layout_constraintEnd_toStartOf="@+id/factImage"
         app:layout_constraintStart_toStartOf="@id/title"
