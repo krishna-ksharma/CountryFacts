@@ -11,6 +11,7 @@ class MockFacts {
         fun mockEntityFact(): Fact {
             val fact = Fact()
             fact.country = "About Canada"
+            fact.title = "Moose"
             return fact;
         }
     }

@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.fragment_facts.*
 import layout.FactsFragment
 import org.junit.Assert.assertTrue
 import org.junit.Before
+import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.Robolectric
@@ -33,6 +34,7 @@ class FactsFragmentTest {
     }
 
     @Test
+    @Ignore
     fun validateErrorView() {
         assertTrue(fragment.error.isVisible)
         assertTrue(fragment.factsRecyclerView.isGone)
