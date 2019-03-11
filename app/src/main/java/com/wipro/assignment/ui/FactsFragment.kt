@@ -12,8 +12,8 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wipro.assignment.R
+import com.wipro.assignment.database.entitiy.Fact
 import com.wipro.assignment.di.ViewModelFactory
-import com.wipro.assignment.rest.model.Facts
 import com.wipro.assignment.ui.FactsAdapter
 import com.wipro.assignment.ui.viewmodel.FactsViewModel
 import dagger.android.support.AndroidSupportInjection
@@ -42,18 +42,15 @@ class FactsFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        setupAdapter(ArrayList<Facts.Row>())
+        setupAdapter(ArrayList())
         factsViewModel.factsResult().observe(this, Observer { facts ->
-            if (facts == null) {
-                factsRecyclerView.isVisible = false
-                error.isVisible = true
-            } else {
-                factsRecyclerView.isVisible = true
-                error.isVisible = false
-                activity?.title = facts.title
+            val hasFacts = facts.isNotEmpty()
+            factsRecyclerView.isVisible = hasFacts
+            error.isVisible = !hasFacts
+            if (hasFacts) {
+                activity?.title = facts[0].country
                 refreshAdapter(facts)
             }
-
         })
         swipeRefresh.setOnRefreshListener {
             swipeRefresh.isRefreshing = false
@@ -66,13 +63,13 @@ class FactsFragment : Fragment() {
         super.onAttach(context)
     }
 
-    private fun refreshAdapter(facts: Facts) {
+    private fun refreshAdapter(facts: List<Fact>) {
         adapter.facts.clear()
-        adapter.facts.addAll(facts.rows)
+        adapter.facts.addAll(facts)
         adapter.notifyDataSetChanged()
     }
 
-    private fun setupAdapter(facts: MutableList<Facts.Row>) {
+    private fun setupAdapter(facts: MutableList<Fact>) {
         adapter = FactsAdapter(context!!, facts)
         val itemDecorator = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
         factsRecyclerView.addItemDecoration(itemDecorator)

@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.wipro.assignment.R
-import com.wipro.assignment.rest.model.Facts
+import com.wipro.assignment.database.entitiy.Fact
 import kotlinx.android.synthetic.main.facts_item.view.*
 
 /**
  * Created by krishnas on 2/22/2019.
  */
-class FactsAdapter(private val context: Context, val facts: MutableList<Facts.Row>) : RecyclerView.Adapter<FactsAdapter.ViewHolder>() {
+class FactsAdapter(private val context: Context, val facts: MutableList<Fact>) : RecyclerView.Adapter<FactsAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(context).inflate(R.layout.facts_item, parent, false)
         return ViewHolder(itemView)
@@ -28,7 +28,7 @@ class FactsAdapter(private val context: Context, val facts: MutableList<Facts.Ro
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindViews(row: Facts.Row) {
+        fun bindViews(row: Fact) {
             itemView.title.text = row.title
             itemView.description.text = row.description
             if (row.imageHref != null) {

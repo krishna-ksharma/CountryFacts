@@ -1,6 +1,7 @@
 package com.wipro.assignment.di
 
 import com.wipro.assignment.FactsApplication
+import com.wipro.assignment.TestFactsApplication
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
@@ -15,7 +16,7 @@ public interface TestAppComponent : AppComponent {
     @Component.Builder
     interface Builder {
         @BindsInstance
-        fun application(application: FactsApplication): Builder
+        fun application(application: TestFactsApplication): Builder
 
         fun build(): TestAppComponent
     }

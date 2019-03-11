@@ -7,7 +7,7 @@ import retrofit2.Callback
 /**
  * Created by krishnas on 2/22/2019.
  */
-open class FactsDataSource {
+open class FactsNetworkDataSource {
     fun getFacts(callback: Callback<Facts>, country: String) {
         Api.fetchFacts(callback, country)
     }

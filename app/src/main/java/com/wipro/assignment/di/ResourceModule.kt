@@ -1,7 +1,11 @@
 package com.wipro.assignment.di
 
-import com.wipro.assignment.data.FactsDataSource
+import android.content.Context
+import androidx.room.Room
+import com.wipro.assignment.data.FactsLocalDataSource
+import com.wipro.assignment.data.FactsNetworkDataSource
 import com.wipro.assignment.data.FactsRepository
+import com.wipro.assignment.database.FactsDatabase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -13,13 +17,25 @@ import javax.inject.Singleton
 class ResourceModule {
     @Provides
     @Singleton
-    fun provideFactsNetworkDataSource(): FactsDataSource {
-        return FactsDataSource()
+    fun provideFactsNetworkDataSource(): FactsNetworkDataSource {
+        return FactsNetworkDataSource()
     }
 
     @Provides
     @Singleton
-    fun providesFactsRepository(factsDataSource: FactsDataSource): FactsRepository {
-        return FactsRepository(factsDataSource)
+    fun providesFactsRepository(factsNetworkDataSource: FactsNetworkDataSource, factsLocalDataSource: FactsLocalDataSource): FactsRepository {
+        return FactsRepository(factsNetworkDataSource, factsLocalDataSource)
+    }
+
+    @Provides
+    @Singleton
+    fun provideFactsLocalDataSource(factsDatabase: FactsDatabase): FactsLocalDataSource {
+        return FactsLocalDataSource(factsDatabase.factsDao())
+    }
+
+    @Provides
+    @Singleton
+    fun provideFactsDatabase(context: Context): FactsDatabase {
+        return Room.databaseBuilder(context, FactsDatabase::class.java, "facts.db").build()
     }
 }

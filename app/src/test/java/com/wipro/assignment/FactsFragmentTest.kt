@@ -23,7 +23,7 @@ import org.robolectric.annotation.Config
 @Config(sdk = [Build.VERSION_CODES.P], application = TestFactsApplication::class)
 class FactsFragmentTest {
     private lateinit var fragment: FactsFragment
-    lateinit var factsViewModel: FactsViewModel
+    private lateinit var factsViewModel: FactsViewModel
 
     @Before
     fun setUp() {
@@ -34,7 +34,6 @@ class FactsFragmentTest {
 
     @Test
     fun validateErrorView() {
-        factsViewModel.factsResult().value = null
         assertTrue(fragment.error.isVisible)
         assertTrue(fragment.factsRecyclerView.isGone)
     }
